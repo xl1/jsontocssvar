@@ -1,0 +1,14 @@
+{
+    "foo": "bar",
+    "array": [
+        1,
+        2,
+        3
+    ],
+    "hoge": {
+        "piyo": "fuga",
+        "nested": {
+            "answer": 42
+        }
+    }
+}
