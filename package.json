@@ -5,7 +5,7 @@
   "main": "index.mjs",
   "scripts": {
     "start": "node --experimental-modules index.mjs",
-    "test": "node --experimental-modules test/index.mjs"
+    "test": "node --experimental-modules test/snapshot.mjs"
   },
   "author": "xl1",
   "license": "MIT",
