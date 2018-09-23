@@ -2,19 +2,21 @@
 import cssesc from 'cssesc';
 
 function* walk(obj) {
-    for (const key of Object.keys(obj)) {
-        const value = obj[key];
-        if (value === null || value === undefined) {
-            // skip
-            continue;
-        }
-        if (typeof value === 'object') {
-            for (const [k, v] of walk(value)) {
-                yield [`${key}-${k}`, v];
+    if (obj === null || obj == undefined) {
+        return;
+    }
+    if (typeof obj === 'object') {
+        for (const key of Object.keys(obj)) {
+            for (const [k, v] of walk(obj[key])) {
+                if (k) {
+                    yield [`${key}-${k}`, v];
+                } else {
+                    yield [key, v];
+                }
             }
-        } else {
-            yield [key, value];
         }
+    } else {
+        yield ['', obj];
     }
 }
 
