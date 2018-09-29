@@ -26,7 +26,7 @@ function* walk(obj) {
  */
 function* format(entries, quote) {
     for (const [key, value] of entries) {
-        const escapedKey = cssesc(key, { escapeEverything: true });
+        const escapedKey = cssesc(key, { isIdentifier: true });
         const wrap = quote || typeof value === 'string';
         const escapedValue = cssesc(value.toString(), { wrap });
         yield `--${escapedKey}: ${escapedValue};`;
